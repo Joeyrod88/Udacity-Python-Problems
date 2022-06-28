@@ -1,0 +1,34 @@
+  Write an if statement that lets a competitor know which of these prizes they won based on the number of points they scored, 
+which is stored in the integer variable points.
+
+Points	Prize
+1 - 50	wooden rabbit
+51 - 150	no prize
+151 - 180	wafer-thin mint
+181 - 200	penguin
+
+All of the lower and upper bounds here are inclusive, and points can only take on positive integer values up to 200.
+
+ In your if statement, assign the result variable to a string holding the appropriate message based on the value of points. 
+If they've won a prize, the message should state "Congratulations! You won a [prize name]!" with the prize name. If there's no prize,
+the message should state "Oh dear, no prize this time."
+
+points = 174  # use this input to make your submission
+wooden_rabbit = 50
+no_prize = 150
+wafer_thin_mint = 180
+penguin = 200
+
+# write your if statement here
+if points <= wooden_rabbit: prize = "Wooden Rabbit" 
+elif points <= no_prize: prize = "No Prize"
+elif points <= wafer_thin_mint: prize = "Wafer-Thin Mint"
+elif points <= penguin: prize = "Penguin"
+else: prize = no_prize
+result = prize 
+if prize == no_prize: result = "Oh dear, no prize this time."
+else: result="Congratulations! You won a {}".format(prize)
+print(result)
+
+#Result
+Congratulations! You won a Wafer-Thin Mint
