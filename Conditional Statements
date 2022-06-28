@@ -20,15 +20,16 @@ wafer_thin_mint = 180
 penguin = 200
 
 # write your if statement here
-if points <= wooden_rabbit: prize = "Wooden Rabbit" 
-elif points <= no_prize: prize = "No Prize"
-elif points <= wafer_thin_mint: prize = "Wafer-Thin Mint"
-elif points <= penguin: prize = "Penguin"
-else: prize = no_prize
-result = prize 
-if prize == no_prize: result = "Oh dear, no prize this time."
-else: result="Congratulations! You won a {}".format(prize)
-print(result)
+if points <= 50:
+    result = "Congratulations! You won a wooden rabbit!"
+elif points <= 150:
+    result = "Oh dear, no prize this time."
+elif points <= 180:
+    result = "Congratulations! You won a wafer-thin mint!"
+else:
+    result = "Congratulations! You won a penguin!"
+
+print(result))
 
 #Result
-Congratulations! You won a Wafer-Thin Mint
+Congratulations! You won a wafer-thin Mint
