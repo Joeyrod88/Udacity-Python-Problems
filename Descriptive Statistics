@@ -1,0 +1,67 @@
+def mean_and_std(sample):
+    #create variables for mean and std from a sample
+    #varience code found through geeksforgeeks.org
+    mean = sum(sample)/len(sample)
+    varience = sum([((v - mean)** 2)for v in sample])/len(sample)
+    std = varience ** 0.5
+    return mean,varience, std 
+    
+    def validation(sample, cutoff):
+    #get mean and std from the previous function and return the new mean
+    #with precision of 2 decimal points
+    
+    while True: #adding all three to be safe
+        mean,varience,std = list(mean_and_std(sample))[0],list(mean_and_std(sample))[1],list(mean_and_std(sample))[2]
+        
+        outliers = 0
+        for x in sample:
+            if (x>(mean+outliers*std)) or (x<(mean-outliers*std)): #defining the outliers on each side of the mean
+                print('this outlier has been removed',x)
+                sample.remove(x)
+                new_mean = sum(sample) / len(sample)
+                new_varience = sum([((v - new_mean)** 2)for v in sample])/len(sample)
+                new_std = new_varience ** 0.5
+                
+                outliers += 1
+        #you can see here the variables to understand what you have        
+        print(mean,std, outliers)
+    
+        if outliers == 0:
+            break
+        
+    new_mean, new_std = mean_and_std(sample)
+            
+    return round(new_mean,2)
+    
+You can test your functions here:
+sample = [1,2,3,5,4,0.9,26,31,420,3,4,2,7]
+cutoff = 2
+#You can try this example or change the data points in the variables
+
+print(mean_and_std(sample))
+#output
+(39.146153846153844, 12173.025562130179, 110.33143505878176)
+
+print(validation(sample, cutoff))
+
+#output
+
+this outlier has been removed 1
+this outlier has been removed 420
+39.146153846153844 110.33143505878176 2
+this outlier has been removed 2
+this outlier has been removed 26
+7.990909090909091 9.850745661250452 2
+this outlier has been removed 3
+this outlier has been removed 31
+6.655555555555555 8.763194637055232 2
+this outlier has been removed 5
+this outlier has been removed 0.9
+3.6999999999999997 1.8508685219956293 2
+this outlier has been removed 3
+this outlier has been removed 2
+4.0 1.6733200530681511 2
+this outlier has been removed 4
+this outlier has been removed 7
+5.0 1.4142135623730951 2
+4.0 0.0 0
