@@ -1,5 +1,5 @@
 def mean_and_std(sample):
-    #create variables for mean and std from a sample
+    #create variables for mean,varience and std from a sample
     #varience code found through geeksforgeeks.org
     mean = sum(sample)/len(sample)
     varience = sum([((v - mean)** 2)for v in sample])/len(sample)
@@ -10,12 +10,12 @@ def mean_and_std(sample):
     #get mean and std from the previous function and return the new mean
     #with precision of 2 decimal points
     
-    while True: #adding all three to be safe
-        mean,varience,std = list(mean_and_std(sample))[0],list(mean_and_std(sample))[1],list(mean_and_std(sample))[2]
+    while True: 
+        mean,varience,std = mean_and_std(sample)
         
         outliers = 0
         for x in sample:
-            if (x>(mean+outliers*std)) or (x<(mean-outliers*std)): #defining the outliers on each side of the mean
+            if x > mean(cutofff*std) or x < mean(cutoff*std): #defining the outliers on each side of the mean
                 print('this outlier has been removed',x)
                 sample.remove(x)
                 new_mean = sum(sample) / len(sample)
